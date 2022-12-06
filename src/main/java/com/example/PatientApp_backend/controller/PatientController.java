@@ -5,6 +5,8 @@ import com.example.PatientApp_backend.model.Patient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class PatientController {
 
@@ -32,9 +34,9 @@ public class PatientController {
 
     @CrossOrigin(origins = "*")
     @GetMapping("/view")
-    public String ViewPatient()
+    public List<Patient> ViewPatient()
     {
-        return "view patient";
+        return(List<Patient>) dao.findAll();
     }
 
 }
